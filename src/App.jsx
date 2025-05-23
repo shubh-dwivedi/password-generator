@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className='w-full h-fit flex flex-col justify-center-safe pt-6 px-2'>
-      <div className='md:w-xl md:mx-auto shadow-md rounded-lg px-4 py-4 my-6 bg-gray-700 text-center max-sm:max-w-sm'>
+      <div className='md:w-xl sm:w-lg max-sm:w-full shadow-md rounded-lg px-4 py-4 my-6 bg-gray-700 mx-auto text-center'>
         <h1 className='text-3xl font-bold text-white mb-3'>Password Utility</h1>
         <div className='flex max-sm:flex-col max-sm:gap-3 justify-between shadow p-3 rounded-lg overflow-hidden mb-4 bg-gray-600'>
           <input 
@@ -49,7 +49,7 @@ function App() {
             <img src={reload} alt="regenerate" className='w-6'/>
           </button>
 
-          <div className='flex justify-between md:hidden'>
+          <div className='flex justify-between min-sm:hidden '>
             <h4 className='text-white my-auto'>{checkPassword(password.split("")) ? "✅ Strong" : "❌ Weak"}</h4>
             <div className='flex justify-end-safe'>
               <button id='btn-copy' className={`bg-blue-400 w-fit text-white px-3 py-2.5 rounded-tr-lg rounded-br-lg shrink-0 cursor-pointer max-sm:rounded-tl-lg max-sm:rounded-bl-lg`} title='Copy' onClick={copyPasswordToClipboard}><img src={copy} alt="copy" className='w-6'/></button>
@@ -60,11 +60,11 @@ function App() {
           </div>
         </div>
 
-        <div className='flex gap-x-4 justify-between text-sm max-sm:flex-col'>
-          <div className='max-sm:hidden'>
+        <div className='flex gap-x-4 justify-between text-sm max-md:flex-col max-md:gap-y-4'>
+          <div className='max-sm:hidden text-start'>
             <h4 className='text-white my-auto'>{checkPassword(password.split("")) ? "✅ Strong" : "❌ Weak"}</h4>
           </div>
-          <div className='flex gap-x-4 max-sm:flex-col max-sm:gap-y-4'>
+          <div className='flex gap-x-4 max-md:flex-col max-md:gap-y-4'>
             <div className='flex gap-x-2 items-center text-white'>
               <input 
                 type="range"
@@ -102,7 +102,7 @@ function App() {
         </div>
       </div>
 
-      <div className='md:w-xl shadow-md rounded-lg px-4 py-4 my-6 bg-gray-700 text-left max-sm:max-w-sm mx-auto max-sm:text-sm text-white'>
+      <div className='md:w-xl sm:w-lg max-sm:w-full shadow-md rounded-lg px-4 py-4 my-6 bg-gray-700 mx-auto text-left max-sm:text-sm text-white'>
         <h3 className='mb-2 font-bold'>Useful Tips</h3>
         <ul className='ml-4' style={{listStyle: 'outside'}}>
           <li>A password must be at least 8 characters long.</li>
