@@ -11,13 +11,10 @@ function App() {
   const [charAllowed, setCharAllowed] = useState(true)
   const [password, setPassword] = useState("")
   const passwordRef = useRef(null);
-  const mobileScreen = "min-[320px]:max-[480px]";
 
   const passwordGenerator = useCallback(() => {
-    let pass_new = generatePassword(length, numberAllowed, charAllowed)
-    setPassword(pass_new)
-    let check = checkPassword(password.split(""))
-    console.log(check)
+    let pass_new = generatePassword(length, numberAllowed, charAllowed);
+    setPassword(pass_new);
   }, [length, numberAllowed, charAllowed, setPassword])
 
   const copyPasswordToClipboard = () => {
