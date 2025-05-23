@@ -29,7 +29,7 @@ export default function checkPassword(arr) {
   const stringToCheck = arr;
   var checkCounter = 0;
 
-  if (stringToCheck.length >= 8 && stringToCheck.length <= 15) {
+  if (stringToCheck.length >= 8) {
     var checkedCount = checkElementsCount(stringToCheck);
     for (let i of checkedCount) {
       if (i >= 1) {

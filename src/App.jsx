@@ -3,6 +3,7 @@ import './App.css'
 import reload from './assets/reload.png'
 import copy from './assets/copy.png'
 import generatePassword from './services/generatePassword'
+import checkPassword from './services/checkPassword'
 
 function App() {
   const [length, setLength] = useState(8)
@@ -15,6 +16,8 @@ function App() {
   const passwordGenerator = useCallback(() => {
     let pass_new = generatePassword(length, numberAllowed, charAllowed)
     setPassword(pass_new)
+    let check = checkPassword(password.split(""))
+    console.log(check)
   }, [length, numberAllowed, charAllowed, setPassword])
 
   const copyPasswordToClipboard = () => {
@@ -40,52 +43,61 @@ function App() {
             ref={passwordRef}
             readOnly
           />
+          
           <button id='btn-copy' className={`bg-blue-400 max-sm:hidden text-white px-3 rounded-tr-lg rounded-br-lg shrink-0 cursor-pointer max-sm:rounded-tl-lg max-sm:rounded-bl-lg`} title='Copy' onClick={copyPasswordToClipboard}><img src={copy} alt="copy" className='w-6'/></button>
           <button id='btn-reload' className='bg-blue-400 max-sm:hidden text-white px-3 rounded-lg shrink-0 ml-2' title='Regenerate' onClick={passwordGenerator}>
             <img src={reload} alt="regenerate" className='w-6'/>
           </button>
 
-          <div className='flex justify-end md:hidden'>
-            <button id='btn-copy' className={`bg-blue-400 w-fit text-white px-3 py-2.5 rounded-tr-lg rounded-br-lg shrink-0 cursor-pointer max-sm:rounded-tl-lg max-sm:rounded-bl-lg`} title='Copy' onClick={copyPasswordToClipboard}><img src={copy} alt="copy" className='w-6'/></button>
-            <button id='btn-reload' className='bg-blue-400 w-fit text-white px-3 py-2.5 rounded-lg shrink-0 ml-2' title='Regenerate' onClick={passwordGenerator}>
-              <img src={reload} alt="regenerate" className='w-6'/>
-            </button>
+          <div className='flex justify-between md:hidden'>
+            <h4 className='text-white my-auto'>{checkPassword(password.split("")) ? "✅ Strong" : "❌ Weak"}</h4>
+            <div className='flex justify-end-safe'>
+              <button id='btn-copy' className={`bg-blue-400 w-fit text-white px-3 py-2.5 rounded-tr-lg rounded-br-lg shrink-0 cursor-pointer max-sm:rounded-tl-lg max-sm:rounded-bl-lg`} title='Copy' onClick={copyPasswordToClipboard}><img src={copy} alt="copy" className='w-6'/></button>
+              <button id='btn-reload' className='bg-blue-400 w-fit text-white px-3 py-2.5 rounded-lg shrink-0 ml-2' title='Regenerate' onClick={passwordGenerator}>
+                <img src={reload} alt="regenerate" className='w-6'/>
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className='flex gap-x-4 text-sm max-sm:flex-col max-sm:gap-y-4'>
-          <div className='flex gap-x-2 items-center text-white'>
-            <input 
-              type="range"
-              min={6}
-              max={24}
-              value={length}
-              className='cursor-pointer max-sm:min-w-56'
-              onChange={(e)=>setLength(e.target.value)}
-            />
-            <label>Length: {length}</label>
+        <div className='flex gap-x-4 justify-between text-sm max-sm:flex-col'>
+          <div className='max-sm:hidden'>
+            <h4 className='text-white my-auto'>{checkPassword(password.split("")) ? "✅ Strong" : "❌ Weak"}</h4>
           </div>
-          <div className='flex gap-x-1.5 items-center text-white'>
-            <input 
-              type="checkbox"
-              defaultChecked={numberAllowed}
-              id="numberInput"
-              onChange={() => {
-                setNumberAllowed(prev => !prev)
-              }}
-            />
-            <label>Numbers</label>
-          </div>
-          <div className='flex gap-x-1.5 items-center text-white'>
-            <input 
-              type="checkbox"
-              defaultChecked={charAllowed}
-              id="charInput"
-              onChange={() => {
-                setCharAllowed(prev => !prev)
-              }}
-            />
-            <label>Special Characters</label>
+          <div className='flex gap-x-4 max-sm:flex-col max-sm:gap-y-4'>
+            <div className='flex gap-x-2 items-center text-white'>
+              <input 
+                type="range"
+                min={6}
+                max={28}
+                value={length}
+                className='cursor-pointer max-sm:min-w-56'
+                onChange={(e)=>setLength(e.target.value)}
+              />
+              <label>Length: {length}</label>
+            </div>
+            <div className='flex gap-x-1.5 items-center text-white'>
+              <input 
+                type="checkbox"
+                defaultChecked={numberAllowed}
+                id="numberInput"
+                onChange={() => {
+                  setNumberAllowed(prev => !prev)
+                }}
+              />
+              <label>Numbers</label>
+            </div>
+            <div className='flex gap-x-1.5 items-center text-white'>
+              <input 
+                type="checkbox"
+                defaultChecked={charAllowed}
+                id="charInput"
+                onChange={() => {
+                  setCharAllowed(prev => !prev)
+                }}
+              />
+              <label>Special Characters</label>
+            </div>
           </div>
         </div>
       </div>
