@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import './App.css'
 import reload from './assets/reload.png'
+import copy from './assets/copy.png'
 import generatePassword from './services/generatePassword'
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
   return (
     <div className='w-full h-fit flex flex-col justify-center-safe pt-6 px-2'>
       <div className='md:w-xl md:mx-auto shadow-md rounded-lg px-4 py-4 my-6 bg-gray-700 text-center max-sm:max-w-sm'>
-        <h1 className='text-3xl font-bold text-white mb-3'>Password Generator Utility</h1>
+        <h1 className='text-3xl font-bold text-white mb-3'>Password Utility</h1>
         <div className='flex max-sm:flex-col max-sm:gap-3 justify-between shadow p-3 rounded-lg overflow-hidden mb-4 bg-gray-600'>
           <input 
             type="text"
@@ -39,14 +40,14 @@ function App() {
             ref={passwordRef}
             readOnly
           />
-          <button id='btn-copy' className={`bg-blue-400 max-sm:hidden text-white px-3 rounded-tr-lg rounded-br-lg shrink-0 cursor-pointer max-sm:rounded-tl-lg max-sm:rounded-bl-lg`} title='Copy' onClick={copyPasswordToClipboard}>Copy</button>
+          <button id='btn-copy' className={`bg-blue-400 max-sm:hidden text-white px-3 rounded-tr-lg rounded-br-lg shrink-0 cursor-pointer max-sm:rounded-tl-lg max-sm:rounded-bl-lg`} title='Copy' onClick={copyPasswordToClipboard}><img src={copy} alt="copy" className='w-6'/></button>
           <button id='btn-reload' className='bg-blue-400 max-sm:hidden text-white px-3 rounded-lg shrink-0 ml-2' title='Regenerate' onClick={passwordGenerator}>
             <img src={reload} alt="regenerate" className='w-6'/>
           </button>
 
           <div className='flex justify-end md:hidden'>
-            <button id='btn-copy' className={`bg-blue-400 w-fit text-white px-3 py-2 rounded-tr-lg rounded-br-lg shrink-0 cursor-pointer max-sm:rounded-tl-lg max-sm:rounded-bl-lg`} title='Copy' onClick={copyPasswordToClipboard}>Copy</button>
-            <button id='btn-reload' className='bg-blue-400 w-fit text-white px-3 py-2 rounded-lg shrink-0 ml-2' title='Regenerate' onClick={passwordGenerator}>
+            <button id='btn-copy' className={`bg-blue-400 w-fit text-white px-3 py-2.5 rounded-tr-lg rounded-br-lg shrink-0 cursor-pointer max-sm:rounded-tl-lg max-sm:rounded-bl-lg`} title='Copy' onClick={copyPasswordToClipboard}><img src={copy} alt="copy" className='w-6'/></button>
+            <button id='btn-reload' className='bg-blue-400 w-fit text-white px-3 py-2.5 rounded-lg shrink-0 ml-2' title='Regenerate' onClick={passwordGenerator}>
               <img src={reload} alt="regenerate" className='w-6'/>
             </button>
           </div>
