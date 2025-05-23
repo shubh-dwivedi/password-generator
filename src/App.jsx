@@ -29,7 +29,7 @@ function App() {
   return (
     <div className='w-full h-fit flex flex-col justify-center-safe pt-6 px-2'>
       <div className='md:w-xl md:mx-auto shadow-md rounded-lg px-4 py-4 my-6 bg-gray-700 text-center max-sm:max-w-sm'>
-        <h1 className='text-3xl font-bold text-white mb-3'>Password Generator</h1>
+        <h1 className='text-3xl font-bold text-white mb-3'>Password Generator Utility</h1>
         <div className='flex max-sm:flex-col max-sm:gap-3 justify-between shadow p-3 rounded-lg overflow-hidden mb-4 bg-gray-600'>
           <input 
             type="text"
@@ -92,10 +92,10 @@ function App() {
       <div className='md:w-xl shadow-md rounded-lg px-4 py-4 my-6 bg-gray-700 text-left max-sm:max-w-sm mx-auto max-sm:text-sm text-white'>
         <h3 className='mb-2 font-bold'>Useful Tips</h3>
         <ul className='ml-4' style={{listStyle: 'outside'}}>
-          <li>An ideal password must be at least 8 characters long.</li>
-          <li>An ideal password must be at most 15 characters long.</li>
-          <li>An ideal password must contain at least 1 small and 1 capital Alphabet.</li>
-          <li>An ideal password must contain at least 1 number and 1 special character.</li>
+          <li>A password must be at least 8 characters long.</li>
+          <li>A strong password should contain at least 1 small and 1 capital Alphabet.</li>
+          <li>A strong password should contain at least 1 number and 1 special character.</li>
+          <li>The passwords of 16 or more characters are considered more strong and secure.</li>
         </ul>
       </div>
     </div>
