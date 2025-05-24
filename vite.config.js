@@ -43,6 +43,22 @@ export default defineConfig({
             purpose: 'maskable'
           }
         ]
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'], // add your extensions
+        runtimeCaching: [
+          {
+            urlPattern: /.*\.(png|jpg|jpeg|svg|gif)/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'image-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 30 * 24 * 60 * 60 // 30 Days
+              }
+            }
+          }
+        ]
       }
     })
   ],
