@@ -42,17 +42,13 @@ function App() {
           />
           
           <button id='btn-copy' className={`bg-blue-400 max-sm:hidden text-white px-3 rounded-tr-lg rounded-br-lg shrink-0 cursor-pointer max-sm:rounded-tl-lg max-sm:rounded-bl-lg`} title='Copy' onClick={copyPasswordToClipboard}><img src={copy} alt="copy" className='w-6'/></button>
-          <button id='btn-reload' className='bg-blue-400 max-sm:hidden text-white px-3 rounded-lg shrink-0 ml-2' title='Regenerate' onClick={passwordGenerator}>
-            <img src={reload} alt="regenerate" className='w-6'/>
-          </button>
+          <button id='btn-reload' className='bg-blue-400 max-sm:hidden text-white px-3 rounded-lg shrink-0 ml-2' title='Regenerate' onClick={passwordGenerator}><img src={reload} alt="regenerate" className='w-6'/></button>
 
           <div className='flex justify-between min-sm:hidden '>
             <h4 className='text-white my-auto'>{checkPassword(password.split("")) ? "✅ Strong" : "❌ Weak"}</h4>
             <div className='flex justify-end-safe'>
               <button id='btn-copy' className={`bg-blue-400 w-fit text-white px-3 py-2.5 rounded-tr-lg rounded-br-lg shrink-0 cursor-pointer max-sm:rounded-tl-lg max-sm:rounded-bl-lg`} title='Copy' onClick={copyPasswordToClipboard}><img src={copy} alt="copy" className='w-6'/></button>
-              <button id='btn-reload' className='bg-blue-400 w-fit text-white px-3 py-2.5 rounded-lg shrink-0 ml-2' title='Regenerate' onClick={passwordGenerator}>
-                <img src={reload} alt="regenerate" className='w-6'/>
-              </button>
+              <button id='btn-reload' className='bg-blue-400 w-fit text-white px-3 py-2.5 rounded-lg shrink-0 ml-2' title='Regenerate' onClick={passwordGenerator}><img src={reload} alt="regenerate" className='w-6'/></button>
             </div>
           </div>
         </div>
